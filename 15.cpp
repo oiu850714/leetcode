@@ -42,10 +42,16 @@ public:
                         --right;
                     }
                 } else if (Nums[left] + Nums[right] > -(FirstNum)){
-                    // 三個數相加 > 0，Nums[right] 太大了，往左找
+                    // 三個數相加 > 0，Nums[right] 太大了，直接往 Nums[right] 左邊找 triple 第三個 element
+                    // 原因:
+                    //      如果 Nums[i] + Nums[left] + Nums[right] > 0，
+                    //      則   Nums[i] + Nums[left+1 ... right-1] + Nums[right] 這些 tuples 都會 > 0
+                    //      可以忽略這些 tuples
+                    //      直接 --right 就忽略了
                     --right;
                 } else {
-                    // 三個數相加 < 0，Nums[left] 太小了，往右找
+                    // 三個數相加 < 0，Nums[left] 太小了，直接往 Nums[left] 右邊找 triple 第二個 element
+                    // 原因同 right
                     ++left;
                 }
             }
