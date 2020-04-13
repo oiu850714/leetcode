@@ -27,7 +27,7 @@ public:
 
 private:
     bool swapNextTwoNodes(ListNode** P) {
-        // 如果沒有剩下 node 或者只剩一個 Node，則不用 swap
+        // 如果沒有剩下 Node 或者只剩一個 Node，則不用 swap
         if (*P == nullptr || (*P)->next == nullptr) {
             return false;
         }
