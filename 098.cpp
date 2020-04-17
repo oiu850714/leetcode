@@ -30,26 +30,18 @@ private:
         }
 
         // 走訪 left subtree
-        if (root->left) {
-            checkValid_(root->left);
-        }
+        checkValid_(root->left);
 
         // 走訪正中間
-        if (HasBeenSet_ && Prev_ >= root->val) {
+        if (Prev_ && Prev_->val >= root->val) {
             // 前一個 node value >= root，不符合 BST 定義，直接 throw
             throw std::exception();
-        } else {
-            Prev_ = root->val;
-            HasBeenSet_ = true;
         }
+        Prev_ = root;
 
         // 走訪 right subtree
-        if (root->right) {
-            checkValid_(root->right);
-        }
-
+        checkValid_(root->right);
     }
 
-    bool HasBeenSet_ = false;
-    int Prev_;
+    TreeNode *Prev_;
 };
