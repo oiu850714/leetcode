@@ -30,7 +30,6 @@ private:
             if (!CheckRepeat.insert(Board[Row][Idx]).second) {
                 return false;
             }
-
         }
         return true;
     }
@@ -45,7 +44,6 @@ private:
             if (!CheckRepeat.insert(Board[Idx][Col]).second) {
                 return false;
             }
-
         }
         return true;
     }
@@ -54,8 +52,7 @@ private:
         int BlockRow = BlockNum / 3;
         int BlockCol = BlockNum % 3;
         std::set<char> CheckRepeat;
-        for (int I = BlockRow * 3; I < BlockRow * 3 + 3;
-                I++) {
+        for (int I = BlockRow * 3; I < BlockRow * 3 + 3; I++) {
             for (int J = BlockCol * 3; J < BlockCol * 3 + 3; J++) {
                 if (Board[I][J] == '.') {
                     continue;
