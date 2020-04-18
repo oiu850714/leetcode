@@ -1,7 +1,7 @@
+#include <exception>
 /**
  * Definition for singly-linked list.
  */
-#include <exception>
 struct ListNode {
     int val;
     ListNode *next;
