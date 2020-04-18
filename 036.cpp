@@ -26,11 +26,11 @@ private:
             if (Board[Row][Idx] == '.') {
                 continue;
             }
-            auto OldSize = CheckRepeat.size();
-            CheckRepeat.insert(Board[Row][Idx]);
-            if (CheckRepeat.size() == OldSize) {
+
+            if (!CheckRepeat.insert(Board[Row][Idx]).second) {
                 return false;
             }
+
         }
         return true;
     }
@@ -41,11 +41,11 @@ private:
             if (Board[Idx][Col] == '.') {
                 continue;
             }
-            auto OldSize = CheckRepeat.size();
-            CheckRepeat.insert(Board[Idx][Col]);
-            if (CheckRepeat.size() == OldSize) {
+
+            if (!CheckRepeat.insert(Board[Idx][Col]).second) {
                 return false;
             }
+
         }
         return true;
     }
@@ -60,9 +60,8 @@ private:
                 if (Board[I][J] == '.') {
                     continue;
                 }
-                auto OldSize = CheckRepeat.size();
-                CheckRepeat.insert(Board[I][J]);
-                if (CheckRepeat.size() == OldSize) {
+
+                if (!CheckRepeat.insert(Board[I][J]).second) {
                     return false;
                 }
             }
