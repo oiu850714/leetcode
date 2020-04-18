@@ -28,7 +28,7 @@ public:
         }
         auto RemovedNode = *SelectedP;
         *SelectedP = (*SelectedP)->next;
-        delete(RemovedNode); // delete 看起來合法，就 delete 吧
+        // delete(RemovedNode); // Nodes 用 new 才要 delete
         return Head;
     }
 };
