@@ -28,14 +28,14 @@ public:
 private:
     std::vector<ListNode *> pairMerge_(const std::vector<ListNode *> &Lists) {
         std::vector<ListNode* > PairMergedLists;
-        for (size_t i = 0; i < Lists.size();) {
-            if (i == Lists.size() - 1) {
-                PairMergedLists.push_back(Lists[i]);
+        for (size_t Idx = 0; Idx < Lists.size();) {
+            if (Idx == Lists.size() - 1) {
+                PairMergedLists.push_back(Lists[Idx]);
                 break;
             }
 
-            PairMergedLists.push_back(mergeTwoLists_(Lists[i], Lists[i + 1]));
-            i += 2;
+            PairMergedLists.push_back(mergeTwoLists_(Lists[Idx], Lists[Idx + 1]));
+            Idx += 2;
         }
         return PairMergedLists;
     }
