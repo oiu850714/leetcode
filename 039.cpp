@@ -27,11 +27,9 @@ private:
             return;
         }
 
-        if (Sum + Candidates[SelectIdx] <= Target_) {
-            Comb_.push_back((Candidates[SelectIdx]));
-            backtrack_(Candidates, Sum + Candidates[SelectIdx], SelectIdx);
-            Comb_.pop_back();
-        }
+        Comb_.push_back((Candidates[SelectIdx]));
+        backtrack_(Candidates, Sum + Candidates[SelectIdx], SelectIdx);
+        Comb_.pop_back();
 
         for (SelectIdx++; SelectIdx < Candidates.size(); SelectIdx++) {
             Comb_.push_back(Candidates[SelectIdx]);
