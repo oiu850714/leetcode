@@ -25,7 +25,7 @@ public:
             auto &Back = MergedIntervals.back();
             if (canMerge_(Back, OldInterval)) {
                 Back = {
-                    std::min(Back[0], OldInterval[0]),
+                    Back[0],
                     std::max(Back[1], OldInterval[1])
                 };
             } else {
