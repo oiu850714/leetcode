@@ -33,9 +33,6 @@ public:
             }
 
             size_t IdxRow, IdxCol;
-            for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightUp; IdxCol++) {
-                Result.push_back(Matrix[IdxRow][IdxCol]);
-            }
 
             for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightUp; IdxCol++) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
@@ -46,6 +43,10 @@ public:
             }
 
             for (std::tie(IdxRow, IdxCol) = RightDown; std::pair<size_t, size_t>{IdxRow, IdxCol} > LeftDown; IdxCol--) {
+                Result.push_back(Matrix[IdxRow][IdxCol]);
+            }
+
+            for (std::tie(IdxRow, IdxCol) = LeftDown; std::pair<size_t, size_t>{IdxRow, IdxCol} > LeftUp; IdxRow--) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
             }
         }
