@@ -8,12 +8,13 @@ public:
             return {};
         }
         std::vector<int> Result;
-        auto N = Matrix.size();
+        auto M = Matrix.size();
+        auto N = Matrix[0].size();
         for (size_t I = 0; I < (N + 1) / 2; I++) {
             std::pair<int, int> LeftUp = {I, I};
             std::pair<int, int> RightUp = {I, N - 1 - I};
-            std::pair<int, int> RightDown = {N - 1 - I, N - 1 - I};
-            std::pair<int, int> LeftDown = {N - 1 - I, I};
+            std::pair<int, int> RightDown = {M - 1 - I, N - 1 - I};
+            std::pair<int, int> LeftDown = {M - 1 - I, I};
 
             size_t IdxRow, IdxCol;
             bool PrintFlag = false;
