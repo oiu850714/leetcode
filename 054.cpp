@@ -11,29 +11,30 @@ public:
         auto M = Matrix.size();
         auto N = Matrix[0].size();
         for (size_t I = 0; I < (N + 1) / 2; I++) {
-            std::pair<int, int> LeftUp = {I, I};
-            std::pair<int, int> RightUp = {I, N - 1 - I};
-            std::pair<int, int> RightDown = {M - 1 - I, N - 1 - I};
-            std::pair<int, int> LeftDown = {M - 1 - I, I};
+            std::pair<size_t, size_t> LeftUp = {I, I};
+            std::pair<size_t, size_t> RightUp = {I, N - 1 - I};
+            std::pair<size_t, size_t> RightDown = {M - 1 - I, N - 1 - I};
+            std::pair<size_t, size_t> LeftDown = {M - 1 - I, I};
 
             size_t IdxRow, IdxCol;
             bool PrintFlag = false;
-            for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<int, int>{IdxRow, IdxCol} < RightUp; IdxCol++) {
+            for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightUp; IdxCol++) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
                 PrintFlag = true;
             }
 
-            for (std::tie(IdxRow, IdxCol) = RightUp; std::pair<int, int>{IdxRow, IdxCol} < RightDown; IdxRow++) {
+
+            for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightUp; IdxCol++) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
                 PrintFlag = true;
             }
 
-            for (std::tie(IdxRow, IdxCol) = RightDown; std::pair<int, int>{IdxRow, IdxCol} > LeftDown; IdxCol--) {
+            for (std::tie(IdxRow, IdxCol) = RightUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightDown; IdxRow++) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
                 PrintFlag = true;
             }
 
-            for (std::tie(IdxRow, IdxCol) = LeftDown; std::pair<int, int>{IdxRow, IdxCol} > LeftUp; IdxRow--) {
+            for (std::tie(IdxRow, IdxCol) = RightDown; std::pair<size_t, size_t>{IdxRow, IdxCol} > LeftDown; IdxCol--) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
                 PrintFlag = true;
             }
