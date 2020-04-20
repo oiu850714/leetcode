@@ -16,8 +16,6 @@ public:
             std::pair<size_t, size_t> RightDown = {M - 1 - I, N - 1 - I};
             std::pair<size_t, size_t> LeftDown = {M - 1 - I, I};
 
-            size_t IdxRow, IdxCol;
-
             if (LeftUp.first == LeftDown.first) {
                 // edge case: 1*n 矩陣
                 for (auto Idx = I; Idx <= RightUp.second; ++Idx) {
@@ -34,6 +32,7 @@ public:
                 break;
             }
 
+            size_t IdxRow, IdxCol;
             for (std::tie(IdxRow, IdxCol) = LeftUp; std::pair<size_t, size_t>{IdxRow, IdxCol} < RightUp; IdxCol++) {
                 Result.push_back(Matrix[IdxRow][IdxCol]);
             }
