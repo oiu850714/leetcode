@@ -26,7 +26,12 @@ public:
             if (canMerge_(Back, OldInterval)) {
                 Back = {
                     Back[0],
+                    // merge 當前 interval 跟他右邊的 interval 時
+                    // merge 後的 interval 的左邊直接拿當前 interval 的左邊即可
+                    // 因為 intervals 已經先排序，當前 interval 的左邊一定比較小
                     std::max(Back[1], OldInterval[1])
+                    // 右邊就不一定了
+                    // e.g. merge [1, 4], [2, 3]
                 };
             } else {
                 MergedIntervals.push_back(OldInterval);
