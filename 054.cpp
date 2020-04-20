@@ -10,7 +10,8 @@ public:
         std::vector<int> Result;
         auto M = Matrix.size();
         auto N = Matrix[0].size();
-        for (size_t I = 0; I < (N + 1) / 2; I++) {
+        auto Round = std::min(M, N);
+        for (size_t I = 0; I < (Round + 1) / 2; I++) {
             std::pair<size_t, size_t> LeftUp = {I, I};
             std::pair<size_t, size_t> RightUp = {I, N - 1 - I};
             std::pair<size_t, size_t> RightDown = {M - 1 - I, N - 1 - I};
