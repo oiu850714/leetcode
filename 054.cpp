@@ -76,9 +76,30 @@ int main() {
         {9},
         {6}
     };
+
+    std::vector<std::vector<int>> Matrix5{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+        {11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+    };
+
+    std::vector<std::vector<int>> Matrix6{
+        {1,11},
+        {2,12},
+        {3,13},
+        {4,14},
+        {5,15},
+        {6,16},
+        {7,17},
+        {8,18},
+        {9,19},
+        {10,20}
+    };
+
     Solution s;
     auto v1 = s.spiralOrder(Matrix1);
     auto v2 = s.spiralOrder(Matrix2);
     auto v3 = s.spiralOrder(Matrix3);
     auto v4 = s.spiralOrder(Matrix4);
+    auto v5 = s.spiralOrder(Matrix5);
+    auto v6 = s.spiralOrder(Matrix6);
 }
