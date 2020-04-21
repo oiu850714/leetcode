@@ -16,18 +16,15 @@ private:
     std::vector<int>::iterator moveTargetToEnd_(std::vector<int>::iterator Begin, std::vector<int>::iterator End, int Target) {
         // [Begin, End)
         auto FirstArrangedTarget = End;
-        auto FindTarget = std::find(Begin, End, Target);
+        auto FindTarget = Begin;
 
-        while (FindTarget < --FirstArrangedTarget) {
-            if (*FirstArrangedTarget != Target) {
+        while ((FindTarget = std::find(FindTarget, FirstArrangedTarget, Target)) != FirstArrangedTarget) {
+            if (*--FirstArrangedTarget != Target) {
                 std::iter_swap(FindTarget, FirstArrangedTarget);
             }
-            FindTarget = std::find(FindTarget, FirstArrangedTarget, Target);
-            // 注意: 在最後一次 loop，FindTarget 會指向完全被搬到末端的 Targets 的第一個 Target
-            // 而當 loop 結束時，FirstArrangedTarget 會指向 FindTarget 前一個位置
         }
 
-        return FindTarget;
+        return FirstArrangedTarget;
     }
 };
 
