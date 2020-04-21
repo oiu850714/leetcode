@@ -10,7 +10,6 @@ public:
 
         auto LastTwo = moveTargetToEnd_(Nums.begin(), Nums.end(), 2);
         moveTargetToEnd_(Nums.begin(), LastTwo, 1);
-        Nums.back();
     }
 
 private:
