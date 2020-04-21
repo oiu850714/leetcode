@@ -8,8 +8,8 @@ public:
             return;
         }
 
-        auto LastTwo = moveTargetToEnd_(Nums.begin(), Nums.end(), 2);
-        moveTargetToEnd_(Nums.begin(), LastTwo, 1);
+        auto FirstArrangedTwo = moveTargetToEnd_(Nums.begin(), Nums.end(), 2);
+        moveTargetToEnd_(Nums.begin(), FirstArrangedTwo, 1);
     }
 
 private:
