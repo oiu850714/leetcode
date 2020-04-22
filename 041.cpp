@@ -5,8 +5,8 @@
 class Solution {
 public:
     int firstMissingPositive(std::vector<int>& A) {
-        auto isNegative = [](auto E) { return E <= 0; };
-        auto PositiveEnd = std::remove_if(A.begin(), A.end(), isNegative);
+        auto isNonPositive = [] (auto E) { return E <= 0; };
+        auto PositiveEnd = std::remove_if(A.begin(), A.end(), isNonPositive);
         A.erase(PositiveEnd, A.end());
         if (A.empty()) {
             return 1;
