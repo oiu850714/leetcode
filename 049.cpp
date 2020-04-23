@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <map>
@@ -15,9 +16,8 @@ public:
         }
 
         std::vector<std::vector<std::string>> Ret;
-        for (const auto &Group : Groups) {
-            Ret.push_back(Group.second);
-        }
+        std::transform(Groups.begin(), Groups.end(), std::back_inserter(Ret), [] (auto E) { return E.second; });
+
         return Ret;
     }
 
