@@ -19,15 +19,15 @@ public:
         auto LeftHighestWalls = calculateLeftHighestWallForEveryIdx_(Heights);
         auto RightHighestWalls = calculateRightHighestWallForEveryIdx_(Heights);
 
-        int TrapWater = 0;
+        int TrapWaterVolume = 0;
         for (size_t Idx = 0; Idx < Heights.size(); Idx++) {
             auto HeightDiff = std::min(LeftHighestWalls[Idx], RightHighestWalls[Idx]) - Heights[Idx];
 
             // 如果左右的牆都比較矮，則可收集水高為 0
-            TrapWater += std::max(0, HeightDiff);
+            TrapWaterVolume += std::max(0, HeightDiff);
         }
 
-        return TrapWater;
+        return TrapWaterVolume;
     }
 
 private:
